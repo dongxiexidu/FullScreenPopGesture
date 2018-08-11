@@ -12,8 +12,7 @@ class HideNavigationBarController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        
+   
     }
 
     override func viewDidLoad() {
@@ -24,15 +23,17 @@ class HideNavigationBarController: UIViewController {
         
         do{
             let btn = UIButton.init()
+            btn.setTitle("禁止侧滑返回", for: .normal)
             btn.addTarget(self, action: #selector(jumpVC), for: .touchUpInside)
-            btn.frame = CGRect.init(x: 100, y: 100, width: 100, height: 40)
+            btn.frame = CGRect.init(x: 100, y: 100, width: 150, height: 40)
             view.addSubview(btn)
             btn.backgroundColor = UIColor.red
         }
         do{
             let btn = UIButton.init()
+            btn.setTitle("隐藏导航栏", for: .normal)
             btn.addTarget(self, action: #selector(jumpVC2), for: .touchUpInside)
-            btn.frame = CGRect.init(x: 100, y: 200, width: 100, height: 40)
+            btn.frame = CGRect.init(x: 100, y: 200, width: 150, height: 40)
             view.addSubview(btn)
             btn.backgroundColor = UIColor.red
         }

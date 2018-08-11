@@ -39,7 +39,7 @@ class NothingToSeeHere {
 
 
 extension UIApplication {
-    // 定义内联函数
+    // 内联函数
     private static let runOnce: Void = {
         
         NothingToSeeHere.harmlessFunction()
@@ -47,7 +47,7 @@ extension UIApplication {
     
     // 在applicationDidFinishLaunching方法之前调用
     override open var next: UIResponder? {
-        // Called before applicationDidFinishLaunching
+       
         UIApplication.runOnce
         return super.next
     }

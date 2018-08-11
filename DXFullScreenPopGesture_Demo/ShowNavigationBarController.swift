@@ -10,13 +10,13 @@ import UIKit
 
 class ShowNavigationBarController: UIViewController {
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "显示导航栏"
-        self.dx_popDisabled = false
+        
+        // 禁止全屏手势(包括边缘侧滑手势)
+        self.dx_popDisabled = true
         self.view.backgroundColor = UIColor.gray
     }
 
