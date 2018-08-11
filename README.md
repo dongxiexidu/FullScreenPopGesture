@@ -20,7 +20,7 @@ extension UIApplication {
     }
 }
 ```
-1.1获取所有的类
+### 2.获取所有的类
 ```
 static func harmlessFunction() {
 
@@ -44,13 +44,13 @@ static func harmlessFunction() {
     types.deallocate()
 }
 ```
-1.2 定义协议
+### 3.定义协议
 ```
 protocol SelfAware: class {
     static func awake()
 }
 ```
-1.3 给`UIViewController`添加`extension`,并遵守`SelfAware`协议,在实现协议的`awake()`方法中交换`viewWillAppear(_:)`与`viewWillDisappear(_:)`方法和`UINavigationController`的`pushViewController(_:animated:)`
+### 4.给`UIViewController`添加`extension`,并遵守`SelfAware`协议,在实现协议的`awake()`方法中交换`viewWillAppear(_:)`与`viewWillDisappear(_:)`方法和`UINavigationController`的`pushViewController(_:animated:)`
 ```
 extension UIViewController:SelfAware {
     static func awake() {
@@ -104,9 +104,9 @@ extension UIViewController:SelfAware {
 }
 ```
 
-1.4 `UINavigationController`的`pushViewController(_:animated:)`和`dx_pushViewController(_:animated:)`的交换方法
+### 5.`UINavigationController`的`pushViewController(_:animated:)`和`dx_pushViewController(_:animated:)`的交换方法
 
-全屏返回的方法核心就在这里处理
+**全屏返回的方法核心就在这里处理**
 ```
 extension UINavigationController {
     static func classInitial() {
@@ -183,7 +183,10 @@ extension UINavigationController {
     }
 }
 ```
-1.4 给UIViewController通过运行时添加属性,**方便外界控制以下权限**是否开启侧滑(默认true),是否隐藏导航栏(默认false),允许侧滑的手势范围(默认全屏)
+### 6.给UIViewController通过运行时添加属性,**方便外界控制以下权限**
+- 是否开启侧滑(默认true)
+- 是否隐藏导航栏(默认false)
+- 允许侧滑的手势范围(默认全屏)
 ```
 typealias DXVCWillAppearInjectBlock = (_ vc: UIViewController?, _ animated: Bool) -> Void
 
@@ -250,7 +253,7 @@ extension  UIViewController {
 }
 ```
 
-1.5 自定义一个继承自`UIGestureRecognizerDelegate`手势类,用于处理是否开启全屏侧滑,开启返回侧滑的距离
+### 7.自定义一个继承自`UIGestureRecognizerDelegate`手势类,用于处理是否开启全屏侧滑,开启返回侧滑的距离
 ```
 class DXFullScreenPopGestureRecognizerDelegate:NSObject, UIGestureRecognizerDelegate {
     
